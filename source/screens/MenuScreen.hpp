@@ -19,6 +19,7 @@ private:
 
     enum MenuID {
         MENU_ID_DUMP_LOGS,
+        MENU_ID_CHECK_LOGS,
         MENU_ID_ABOUT,
 
         MENU_ID_MIN = MENU_ID_DUMP_LOGS,

@@ -1,4 +1,5 @@
 #include "MenuScreen.hpp"
+#include "CheckLogsScreen.hpp"
 #include "AboutScreen.hpp"
 #include "DumpLogsScreen.hpp"
 #include "Gfx.hpp"
@@ -6,6 +7,7 @@
 MenuScreen::MenuScreen()
     : mEntries({
               {MENU_ID_DUMP_LOGS, {0xf022, "Dump Logs"}},
+              {MENU_ID_CHECK_LOGS, {0xf022, "Check Logs"}},
               {MENU_ID_ABOUT, {0xf05a, "About WiiUCrashLogDumper"}},
       }) {}
 
@@ -58,6 +60,9 @@ bool MenuScreen::Update(Input &input) {
         switch (mSelectedEntry) {
             case MENU_ID_DUMP_LOGS:
                 mSubscreen = std::make_unique<DumpLogsScreen>();
+                break;
+            case MENU_ID_CHECK_LOGS:
+                mSubscreen = std::make_unique<CheckLogsScreen>();
                 break;
             case MENU_ID_ABOUT:
                 mSubscreen = std::make_unique<AboutScreen>();
